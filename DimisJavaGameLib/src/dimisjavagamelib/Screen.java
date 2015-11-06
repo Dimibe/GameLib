@@ -61,4 +61,8 @@ public class Screen extends Canvas {
 	public void removeDrawable(Drawable drawable) {
 		drawables.remove(drawable);
 	}
+	
+	public Dimension getSize() {
+		return size;
+	}
 }

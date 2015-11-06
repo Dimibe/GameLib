@@ -7,10 +7,10 @@ import dimisjavagamelib.objects.Actor;
 import dimisjavagamelib.objects.World;
 
 /**
- * GameLib
+ * Dimi's Java Game Library
  * 
  * @since 6.11.2015
- * @version 3.0
+ * @version 3.1
  * 
  * @author dbegnis
  *
@@ -33,7 +33,6 @@ public class GameLib implements Runnable {
 	private GameLib() {
 		actors = new LinkedList<>();
 		updateables = new LinkedList<>();
-		screen = new Screen(800, 600);
 		thread = new Thread(this);
 	}
 
@@ -63,6 +62,10 @@ public class GameLib implements Runnable {
 
 	public void stop() {
 		running = false;
+	}
+	
+	public void setupScreen(int w, int h) {
+		screen = new Screen(w,h);
 	}
 
 	public void addActor(Actor actor) {
@@ -100,6 +103,11 @@ public class GameLib implements Runnable {
 		this.world = world;
 		updateables.add(world);
 		screen.addDrawable(world);
+	}
+	
+	public void removeWorld() {
+		updateables.remove(world);
+		screen.removeDrawable(world);
 	}
 
 }

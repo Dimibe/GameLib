@@ -9,16 +9,16 @@ import dimisjavagamelib.interfaces.Drawable;
 import dimisjavagamelib.interfaces.Updateable;
 
 public abstract class World implements Updateable, Drawable {
-	
+
 	private BufferedImage img;
-	
+
 	public World(String img) {
-		this();
 		this.img = ImageHandler.loadImage(img);
-		ImageHandler.resizeImage(this.img, GameLib.getInstance().getScreen().getWidth(), GameLib.getInstance().getScreen().getHeight());
+		ImageHandler.resizeImage(this.img, GameLib.getInstance().getScreen().getSize().width,
+				GameLib.getInstance().getScreen().getSize().height);
 	}
-	
-	private World() {
+
+	public void activate() {
 		GameLib.getInstance().setWorld(this);
 	}
 

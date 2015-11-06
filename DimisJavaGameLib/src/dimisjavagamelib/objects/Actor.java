@@ -16,13 +16,12 @@ public abstract class Actor implements Drawable, Updateable {
 	private BufferedImage img;
 
 	public Actor(String img, int posX, int posY) {
-		this();
 		this.img = ImageHandler.loadImage(img);
 		this.posX = posX;
 		this.posY = posY;
 	}
 
-	private Actor() {
+	public void activate() {
 		GameLib.getInstance().addActor(this);
 	}
 
