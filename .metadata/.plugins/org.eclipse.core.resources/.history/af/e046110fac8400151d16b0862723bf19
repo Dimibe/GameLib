@@ -1,0 +1,18 @@
+package dimisjavagamelib.test.two;
+
+import dimisjavagamelib.GameLoop;
+import dimisjavagamelib.handler.JFrameHandler;
+import dimisjavagamelib.test.Jellyfish;
+
+public class Test2 {
+	
+	public static void main(String[] args) {
+		
+		JFrameHandler frameHandler = JFrameHandler.createJFrame(800, 600);
+		frameHandler.add(GameLoop.getInstance().getScreen());
+		
+		new Jellyfish("dimisjavagamelib/res/JellyFish.jpg", 0, 0);
+		GameLoop.getInstance().start();
+		
+	}
+}

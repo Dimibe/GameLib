@@ -1,0 +1,14 @@
+package dimisjavagamelib.handler;
+
+import javax.swing.JFrame;
+
+public class JFrameHandler {
+	
+	private JFrameHandler() {
+		
+	}
+	
+	public static JFrame createJFrame() {
+		
+	}
+}

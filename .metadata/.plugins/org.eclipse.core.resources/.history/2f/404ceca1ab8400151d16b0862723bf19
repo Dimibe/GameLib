@@ -1,0 +1,14 @@
+package dimisjavagamelib.test.two;
+
+import java.awt.Frame;
+
+import dimisjavagamelib.GameLoop;
+import dimisjavagamelib.handler.JFrameHandler;
+
+public class Test2 {
+	
+	public static void main(String[] args) {
+		JFrameHandler frameHandler = JFrameHandler.createJFrame(800, 600);
+		frameHandler.add(GameLoop.getInstance().getScreen());
+	}
+}

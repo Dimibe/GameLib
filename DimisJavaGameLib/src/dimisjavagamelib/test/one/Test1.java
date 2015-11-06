@@ -3,7 +3,8 @@ package dimisjavagamelib.test.one;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import dimisjavagamelib.GameLoop;
+import dimisjavagamelib.GameLib;
+import dimisjavagamelib.test.Jellyfish;
 
 /**
  * Test for GameLib version 1.0
@@ -16,13 +17,13 @@ public class Test1 {
 
 		JFrame frame = new JFrame();
 		frame.setSize(800, 600);
-		frame.add(GameLoop.getInstance().getScreen());
+		frame.add(GameLib.getInstance().getScreen());
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.requestFocus();
 		
 		new Jellyfish("dimisjavagamelib/res/JellyFish.jpg", 0, 0);
-		GameLoop.getInstance().start();
+		GameLib.getInstance().start();
 	}
 }

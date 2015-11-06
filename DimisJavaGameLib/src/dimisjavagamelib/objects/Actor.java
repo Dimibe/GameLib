@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import dimisjavagamelib.GameLoop;
+import dimisjavagamelib.GameLib;
 import dimisjavagamelib.interfaces.Drawable;
 import dimisjavagamelib.interfaces.Updateable;
 
@@ -29,7 +29,7 @@ public abstract class Actor implements Drawable, Updateable {
 	}
 
 	private Actor() {
-		GameLoop.getInstance().addActor(this);
+		GameLib.getInstance().addActor(this);
 	}
 
 	@Override
