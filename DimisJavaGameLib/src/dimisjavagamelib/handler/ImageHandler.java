@@ -3,8 +3,20 @@ package dimisjavagamelib.handler;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public abstract class ImageHandler {
+	
+	public static BufferedImage loadImage(String img) {
+		try {
+			return ImageIO.read(ImageHandler.class.getClassLoader().getResourceAsStream(img));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public static BufferedImage resizeImage(BufferedImage originalImage, int newWidth, int newHeight) {
 		BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, originalImage.getType());

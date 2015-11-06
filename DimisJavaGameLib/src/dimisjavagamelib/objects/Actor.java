@@ -2,11 +2,9 @@ package dimisjavagamelib.objects;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import dimisjavagamelib.GameLib;
+import dimisjavagamelib.handler.ImageHandler;
 import dimisjavagamelib.interfaces.Drawable;
 import dimisjavagamelib.interfaces.Updateable;
 
@@ -19,11 +17,7 @@ public abstract class Actor implements Drawable, Updateable {
 
 	public Actor(String img, int posX, int posY) {
 		this();
-		try {
-			this.img = ImageIO.read(getClass().getClassLoader().getResourceAsStream(img));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		this.img = ImageHandler.loadImage(img);
 		this.posX = posX;
 		this.posY = posY;
 	}

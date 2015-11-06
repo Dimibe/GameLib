@@ -4,12 +4,13 @@ import java.util.LinkedList;
 
 import dimisjavagamelib.interfaces.Updateable;
 import dimisjavagamelib.objects.Actor;
+import dimisjavagamelib.objects.World;
 
 /**
  * GameLib
  * 
  * @since 6.11.2015
- * @version 2.0
+ * @version 3.0
  * 
  * @author dbegnis
  *
@@ -22,6 +23,8 @@ public class GameLib implements Runnable {
 
 	private LinkedList<Actor> actors;
 	private LinkedList<Updateable> updateables;
+	
+	private World world;
 
 	private Thread thread;
 
@@ -91,6 +94,12 @@ public class GameLib implements Runnable {
 			loop = new GameLib();
 		}
 		return loop;
+	}
+
+	public void setWorld(World world) {
+		this.world = world;
+		updateables.add(world);
+		screen.addDrawable(world);
 	}
 
 }
