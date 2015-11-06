@@ -5,6 +5,11 @@ import javax.swing.WindowConstants;
 
 import dimisjavagamelib.GameLoop;
 
+/**
+ * Test for GameLib version 1.0
+ * @author dbegnis
+ *
+ */
 public class Test1 {
 
 	public static void main(String[] args) {

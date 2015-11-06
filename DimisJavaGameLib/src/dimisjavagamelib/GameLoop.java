@@ -5,6 +5,12 @@ import java.util.LinkedList;
 import dimisjavagamelib.interfaces.Updateable;
 import dimisjavagamelib.objects.Actor;
 
+/**
+ * 
+ * @version 1.0
+ * @author dbegnis
+ *
+ */
 public class GameLoop implements Runnable {
 
 	private static GameLoop loop;
