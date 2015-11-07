@@ -12,10 +12,10 @@ public class Test3 {
 
 		JFrameHandler.createJFrame(800, 600);
 		
-		World world = new NewWorld("dimisjavagamelib/res/Desert.jpg");
+		World world = new NewWorld();
 		world.activate();
 		
-		Actor actor = new Jellyfish("dimisjavagamelib/res/JellyFish.jpg", 0, 0);
+		Actor actor = new Jellyfish(0, 0);
 		actor.setImg(ImageHandler.resizeImage(actor.getImg(), 50, 50));
 		actor.activate();
 

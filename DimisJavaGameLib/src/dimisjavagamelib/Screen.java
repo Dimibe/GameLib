@@ -49,8 +49,8 @@ public class Screen extends Canvas {
 
 	private void draw(Graphics2D g) {
 		g.clearRect(0, 0, size.width, size.width);
-		for (Drawable d : drawables) {
-			d.draw(g);
+		for (int i = 0; i < drawables.size(); i++) {
+			drawables.get(i).draw(g);
 		}
 	}
 
@@ -61,7 +61,7 @@ public class Screen extends Canvas {
 	public void removeDrawable(Drawable drawable) {
 		drawables.remove(drawable);
 	}
-	
+
 	public Dimension getSize() {
 		return size;
 	}

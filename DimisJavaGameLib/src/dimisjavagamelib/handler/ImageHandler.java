@@ -19,7 +19,7 @@ public abstract class ImageHandler {
 	}
 
 	public static BufferedImage resizeImage(BufferedImage originalImage, int newWidth, int newHeight) {
-		BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, originalImage.getType());
+		BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = resizedImage.createGraphics();
 		g.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
 		g.dispose();

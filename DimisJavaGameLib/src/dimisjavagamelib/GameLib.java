@@ -40,8 +40,8 @@ public class GameLib implements Runnable {
 	public void run() {
 		while (running) {
 
-			for (Updateable u : updateables) {
-				u.update();
+			for (int i = 0; i < updateables.size(); i++) {
+				updateables.get(i).update();
 			}
 
 			screen.repaint();

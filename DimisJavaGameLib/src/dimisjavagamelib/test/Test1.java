@@ -22,7 +22,7 @@ public class Test1 {
 		frame.setVisible(true);
 		frame.requestFocus();
 		
-		new Jellyfish("dimisjavagamelib/res/JellyFish.jpg", 0, 0);
+		new Jellyfish(0, 0);
 		GameLib.getInstance().start();
 	}
 }

@@ -4,8 +4,8 @@ import dimisjavagamelib.objects.World;
 
 public class NewWorld extends World {
 
-	public NewWorld(String img) {
-		super(img);
+	public NewWorld() {
+		super("dimisjavagamelib/res/Desert.jpg");
 	}
 
 	@Override

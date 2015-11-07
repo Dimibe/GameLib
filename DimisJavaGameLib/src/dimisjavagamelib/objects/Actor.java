@@ -13,7 +13,7 @@ public abstract class Actor implements Drawable, Updateable {
 	protected int posX;
 	protected int posY;
 
-	private BufferedImage img;
+	protected BufferedImage img;
 
 	public Actor(String img, int posX, int posY) {
 		this.img = ImageHandler.loadImage(img);
@@ -28,6 +28,23 @@ public abstract class Actor implements Drawable, Updateable {
 	@Override
 	public final void draw(Graphics2D g) {
 		g.drawImage(img, posX, posY, null);
+	}
+
+	/**
+	 * 
+	 * @return Returns true if the actor is completely out of screen
+	 */
+	public boolean isOutOfScreen() {
+		return (posX + img.getWidth() < 0 || posX > GameLib.getInstance().getScreen().getWidth())
+				|| (posY + img.getHeight() < 0 || posY > GameLib.getInstance().getScreen().getHeight());
+	}
+	/**
+	 *  Returns true is the actor is completely on the screen
+	 *  
+	 */
+	public boolean isInBounds() {
+		return !((posX < 0 || posX + img.getWidth() > GameLib.getInstance().getScreen().getWidth())
+				|| (posY < 0 || posY + img.getHeight() > GameLib.getInstance().getScreen().getHeight()));
 	}
 
 	public int getPosX() {
