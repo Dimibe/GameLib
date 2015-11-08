@@ -5,6 +5,11 @@ import dimisjavagamelib.Orientation;
 import dimisjavagamelib.handler.ImageHandler;
 import dimisjavagamelib.objects.Actor;
 
+/**
+ * 
+ * @author dbegnis
+ *
+ */
 public class Bullet extends Actor {
 
 	private Orientation orientation;
