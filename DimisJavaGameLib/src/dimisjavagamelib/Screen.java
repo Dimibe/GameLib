@@ -11,6 +11,12 @@ import java.util.LinkedList;
 import dimisjavagamelib.handler.InputHandler;
 import dimisjavagamelib.interfaces.Drawable;
 
+/**
+ * The Canvas on which all the actors and the world is displayed
+ * 
+ * @author dbegnis
+ *
+ */
 public class Screen extends Canvas {
 	private static final long serialVersionUID = 1L;
 

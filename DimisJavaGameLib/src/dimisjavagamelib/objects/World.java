@@ -8,6 +8,11 @@ import dimisjavagamelib.handler.ImageHandler;
 import dimisjavagamelib.interfaces.Drawable;
 import dimisjavagamelib.interfaces.Updateable;
 
+/**
+ * this class represents a standard collection of functionalities for a world object
+ * @author dbegnis
+ *
+ */
 public abstract class World implements Updateable, Drawable {
 
 	private BufferedImage img;

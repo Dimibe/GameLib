@@ -8,23 +8,32 @@ import dimisjavagamelib.objects.Actor;
 public class Bullet extends Actor {
 
 	private Orientation orientation;
-	
+
 	private int speed = 10;
 
 	public Bullet(int posX, int posY, Orientation orientation) {
 		super("dimisjavagamelib/res/bullet.png", posX, posY);
 
 		this.orientation = orientation;
-		img = ImageHandler.resizeImage(img, 100, 100);
+		setImg(ImageHandler.resizeImage(getImg(), 100, 100));
 
 	}
 
 	@Override
 	public void update() {
-		posX += orientation.getX() * speed;
-		posY += orientation.getY() * speed;
+		rect.x += orientation.getX() * speed;
+		rect.y += orientation.getY() * speed;
 
 		if (isOutOfScreen()) {
+			GameLib.getInstance().removeActor(this);
+		}
+
+		if (Test3.opp == null) {
+			return;
+		}
+
+		if (intersects(Test3.opp)) {
+			Test3.opp.remove();
 			GameLib.getInstance().removeActor(this);
 		}
 	}

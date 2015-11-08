@@ -6,6 +6,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * This class is the standard Listener class for Keyboard and Mouse
+ * @author dbegnis
+ *
+ */
 public class InputHandler implements KeyListener, MouseListener, MouseMotionListener {
     
     private static boolean[] keys = new boolean[512];

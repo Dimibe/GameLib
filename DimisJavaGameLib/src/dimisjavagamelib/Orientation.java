@@ -1,7 +1,13 @@
 package dimisjavagamelib;
 
+/**
+ * Represents a standart Vector in one of each Orientations
+ * 
+ * @author dbegnis
+ *
+ */
 public enum Orientation {
-	LEFT(-1, 0), RIGHT(1, 0), UP(0, -1), DOWN(0, 1);
+	WEST(-1, 0), EAST(1, 0), NORTH(0, -1), SOUTH(0, 1);
 
 	private int x;
 	private int y;

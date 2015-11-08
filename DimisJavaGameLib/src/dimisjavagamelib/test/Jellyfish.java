@@ -17,24 +17,24 @@ public class Jellyfish extends Actor {
 	@Override
 	public void update() {
 		if (InputHandler.isKeyDown(KeyEvent.VK_W)) {
-			posY -= 5;
-			orientation = Orientation.UP;
+			rect.y -= 5;
+			orientation = Orientation.NORTH;
 		}
 		if (InputHandler.isKeyDown(KeyEvent.VK_A)) {
-			posX -= 5;
-			orientation = Orientation.LEFT;
+			rect.x -= 5;
+			orientation = Orientation.WEST;
 		}
 		if (InputHandler.isKeyDown(KeyEvent.VK_S)) {
-			posY += 5;
-			orientation = Orientation.DOWN;
+			rect.y += 5;
+			orientation = Orientation.SOUTH;
 		}
 		if (InputHandler.isKeyDown(KeyEvent.VK_D)) {
-			posX += 5;
-			orientation = Orientation.RIGHT;
+			rect.x += 5;
+			orientation = Orientation.EAST;
 		}
 		
 		if (InputHandler.isKeyDown(KeyEvent.VK_SPACE)) {
-			new Bullet(posX, posY, orientation).activate();
+			new Bullet(rect.x, rect.y, orientation).activate();
 		}
 	}
 

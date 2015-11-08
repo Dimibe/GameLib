@@ -9,8 +9,8 @@ import dimisjavagamelib.objects.World;
 /**
  * Dimi's Java Game Library
  * 
- * @since 6.11.2015
- * @version 3.1
+ * @since 8.11.2015
+ * @version 3.3
  * 
  * @author dbegnis
  *

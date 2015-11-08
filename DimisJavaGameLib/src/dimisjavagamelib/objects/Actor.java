@@ -1,6 +1,7 @@
 package dimisjavagamelib.objects;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import dimisjavagamelib.GameLib;
@@ -8,17 +9,22 @@ import dimisjavagamelib.handler.ImageHandler;
 import dimisjavagamelib.interfaces.Drawable;
 import dimisjavagamelib.interfaces.Updateable;
 
+/**
+ * this abstract class represents a standard collection with functionalities for objects in the Game 
+ * @author dbegnis
+ *
+ */
 public abstract class Actor implements Drawable, Updateable {
 
-	protected int posX;
-	protected int posY;
+	protected Rectangle rect;
 
-	protected BufferedImage img;
+	private BufferedImage img;
 
 	public Actor(String img, int posX, int posY) {
-		this.img = ImageHandler.loadImage(img);
-		this.posX = posX;
-		this.posY = posY;
+		rect = new Rectangle(posX, posY);
+		setImg(ImageHandler.loadImage(img));
+		rect.x = posX;
+		rect.y = posY;
 	}
 
 	public void activate() {
@@ -27,7 +33,7 @@ public abstract class Actor implements Drawable, Updateable {
 
 	@Override
 	public final void draw(Graphics2D g) {
-		g.drawImage(img, posX, posY, null);
+		g.drawImage(img, rect.x, rect.y, rect.width, rect.height, null);
 	}
 
 	/**
@@ -35,32 +41,42 @@ public abstract class Actor implements Drawable, Updateable {
 	 * @return Returns true if the actor is completely out of screen
 	 */
 	public boolean isOutOfScreen() {
-		return (posX + img.getWidth() < 0 || posX > GameLib.getInstance().getScreen().getWidth())
-				|| (posY + img.getHeight() < 0 || posY > GameLib.getInstance().getScreen().getHeight());
+		return (rect.x + img.getWidth() < 0 || rect.x > GameLib.getInstance().getScreen().getWidth())
+				|| (rect.y + img.getHeight() < 0 || rect.y > GameLib.getInstance().getScreen().getHeight());
 	}
+
 	/**
-	 *  Returns true is the actor is completely on the screen
-	 *  
+	 * 
+	 * @return Returns true is the actor is completely on the screen
 	 */
 	public boolean isInBounds() {
-		return !((posX < 0 || posX + img.getWidth() > GameLib.getInstance().getScreen().getWidth())
-				|| (posY < 0 || posY + img.getHeight() > GameLib.getInstance().getScreen().getHeight()));
+		return !((rect.x < 0 || rect.x + img.getWidth() > GameLib.getInstance().getScreen().getWidth())
+				|| (rect.y < 0 || rect.y + img.getHeight() > GameLib.getInstance().getScreen().getHeight()));
+	}
+
+	/**
+	 * 
+	 * @param actor
+	 * @return Returns true if this actor intersects with the given actor
+	 */
+	public boolean intersects(Actor actor) {
+		return this.rect.intersects(actor.rect);
 	}
 
 	public int getPosX() {
-		return posX;
+		return rect.x;
 	}
 
 	public void setPosX(int posX) {
-		this.posX = posX;
+		this.rect.x = posX;
 	}
 
 	public int getPosY() {
-		return posY;
+		return rect.y;
 	}
 
 	public void setPosY(int posY) {
-		this.posY = posY;
+		this.rect.y = posY;
 	}
 
 	public BufferedImage getImg() {
@@ -69,6 +85,8 @@ public abstract class Actor implements Drawable, Updateable {
 
 	public void setImg(BufferedImage img) {
 		this.img = img;
+		rect.width = img.getWidth();
+		rect.height = img.getHeight();
 	}
 
 }

@@ -7,6 +7,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * This abstract class can be used to perform some actions on BufferdImages
+ * @author dbegnis
+ *
+ */
 public abstract class ImageHandler {
 	
 	public static BufferedImage loadImage(String img) {

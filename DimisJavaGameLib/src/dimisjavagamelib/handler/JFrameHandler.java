@@ -8,6 +8,11 @@ import javax.swing.WindowConstants;
 
 import dimisjavagamelib.GameLib;
 
+/**
+ * This class can be used to create predefined JFrames
+ * @author dbegnis
+ *
+ */
 public class JFrameHandler {
 
 	private JFrame frame;
@@ -24,7 +29,7 @@ public class JFrameHandler {
 		frame.setLocationRelativeTo(null);
 		GameLib.getInstance().setupScreen(screen_w, screen_h);
 		frame.add(GameLib.getInstance().getScreen());
-
+		
 		frame.setVisible(true);
 	}
 
