@@ -18,7 +18,7 @@ public abstract class World implements Updateable, Drawable {
 	private BufferedImage img;
 
 	public World(String img) {
-		this.img = ImageHandler.loadImage(img);
+		this.img = ImageHandler.getImage(img);
 		ImageHandler.resizeImage(this.img, GameLib.getInstance().getScreen().getSize().width,
 				GameLib.getInstance().getScreen().getSize().height);
 	}

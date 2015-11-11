@@ -22,7 +22,7 @@ public abstract class Actor implements Drawable, Updateable {
 
 	public Actor(String img, int posX, int posY) {
 		rect = new Rectangle(posX, posY);
-		setImg(ImageHandler.loadImage(img));
+		setImg(ImageHandler.getImage(img));
 		rect.x = posX;
 		rect.y = posY;
 	}

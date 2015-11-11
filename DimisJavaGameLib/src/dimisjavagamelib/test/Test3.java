@@ -11,7 +11,7 @@ public class Test3 {
 	public static Opponent opp;
 
 	public static void main(String[] args) {
-
+			
 		JFrameHandler.createJFrame(800, 600);
 		
 		World world = new NewWorld();

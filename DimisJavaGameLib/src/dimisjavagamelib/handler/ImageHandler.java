@@ -3,26 +3,58 @@ package dimisjavagamelib.handler;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
+import dimisjavagamelib.exceptions.ImageNotFoundException;
+
 /**
- * This abstract class can be used to perform some actions on BufferdImages
+ * This class contains a BufferedImage Pool with all pictures so you dont load
+ * Pictures twice In addition it provides some functions on BufferedImages
+ * 
  * @author dbegnis
  *
  */
-public abstract class ImageHandler {
-	
-	public static BufferedImage loadImage(String img) {
-		try {
-			return ImageIO.read(ImageHandler.class.getClassLoader().getResourceAsStream(img));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+public class ImageHandler {
+
+	public static HashMap<String, BufferedImage> images;
+
+	static {
+		images = new HashMap<>();
+		preloadImages();
 	}
 
+	/**
+	 * Returns the BufferedImage to the given String
+	 * 
+	 * @param img
+	 *            - the FilePath or ImageName, if the Image is loaded already
+	 * @return BufferedImage
+	 * @throws ImageNotFoundException
+	 *             - if the Image failed to laod
+	 */
+	public static BufferedImage getImage(String img) throws ImageNotFoundException {
+		File file = new File(img);
+		if (!images.containsKey(file.getName())) {
+			loadImage(file);
+		}
+		return images.get(file.getName());
+	}
+
+	/**
+	 * Returns a new BufferedImage with the given width and height
+	 * 
+	 * @param originalImage
+	 *            - BufferedImage
+	 * @param newWidth
+	 *            - int
+	 * @param newHeight
+	 *            - int
+	 * @return BufferedImage
+	 */
 	public static BufferedImage resizeImage(BufferedImage originalImage, int newWidth, int newHeight) {
 		BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = resizedImage.createGraphics();
@@ -32,6 +64,15 @@ public abstract class ImageHandler {
 		return resizedImage;
 	}
 
+	/**
+	 * Returns a new BufferedImage rotated in the given angle
+	 * 
+	 * @param img
+	 *            - BufferedImage
+	 * @param degrees
+	 *            - double The angle how much the Image is rotated
+	 * @return BufferedImage
+	 */
 	public static BufferedImage rotate(BufferedImage img, double degrees) {
 		AffineTransform affineTransform = AffineTransform.getRotateInstance(Math.toRadians(degrees), img.getWidth() / 2,
 				img.getHeight() / 2);
@@ -42,6 +83,20 @@ public abstract class ImageHandler {
 		return rotatedImage;
 	}
 
+	/**
+	 * Returns a new BufferedImage rotated in given angle with the given
+	 * rotation point
+	 * 
+	 * @param img
+	 *            - BufferedImage
+	 * @param degrees
+	 *            - double the angle
+	 * @param xPos
+	 *            - int the x value of the roation point
+	 * @param yPos
+	 *            - int the y value of the rotation point
+	 * @return BufferedImage
+	 */
 	public static BufferedImage rotate(BufferedImage img, double degrees, int xPos, int yPos) {
 		AffineTransform affineTransform = AffineTransform.getRotateInstance(Math.toRadians(degrees), xPos, yPos);
 		BufferedImage rotatedImage = new BufferedImage(img.getWidth(), img.getHeight(), img.getType());
@@ -49,5 +104,32 @@ public abstract class ImageHandler {
 		g.setTransform(affineTransform);
 		g.drawImage(img, 0, 0, null);
 		return rotatedImage;
+	}
+
+	private static void preloadImages() {
+		File res = new File("src/dimisjavagamelib/res");
+		if (!res.isDirectory() || !res.exists()) {
+			System.out.println("Folder not Found");
+			return;
+		}
+		for (File file : res.listFiles()) {
+			try {
+				loadImage(file);
+			} catch (ImageNotFoundException e) {
+				System.out.println(e.getMessage() + ": " + file.getPath());
+			}
+		}
+	}
+
+	private static void loadImage(File file) throws ImageNotFoundException {
+		BufferedImage img = null;
+		try {
+			img = ImageIO.read(file);
+		} catch (IOException e) {
+			throw new ImageNotFoundException();
+		}
+		String name = file.getName();
+		images.put(name, img);
+		System.out.println("Added " + name + " to Images");
 	}
 }

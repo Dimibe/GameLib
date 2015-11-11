@@ -11,7 +11,7 @@ public class Jellyfish extends Actor {
 	private Orientation orientation;
 	
 	public Jellyfish(int posX, int posY) {
-		super("dimisjavagamelib/res/JellyFish.jpg", posX, posY);
+		super("src/dimisjavagamelib/res/JellyFish.jpg", posX, posY);
 	}
 
 	@Override
