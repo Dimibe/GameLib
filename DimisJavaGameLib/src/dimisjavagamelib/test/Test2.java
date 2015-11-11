@@ -23,7 +23,7 @@ public class Test2 implements Updateable {
 		frameHandler.add(GameLib.getInstance().getScreen());
 
 		Actor actor = new Jellyfish(0, 0);
-		actor.setImg(ImageHandler.resizeImage(actor.getImg(), 50, 50));
+		actor.setImg(ImageHandler.resizeImage(actor.getImageName(), 50, 50));
 		GameLib.getInstance().start();
 
 		GameLib.getInstance().addUpdateable(new Test2());

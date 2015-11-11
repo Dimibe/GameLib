@@ -20,7 +20,7 @@ import dimisjavagamelib.exceptions.ImageNotFoundException;
  */
 public class ImageHandler {
 
-	public static HashMap<String, BufferedImage> images;
+	private static HashMap<String, BufferedImage> images;
 
 	static {
 		images = new HashMap<>();
@@ -55,12 +55,18 @@ public class ImageHandler {
 	 *            - int
 	 * @return BufferedImage
 	 */
-	public static BufferedImage resizeImage(BufferedImage originalImage, int newWidth, int newHeight) {
+	public static BufferedImage resizeImage(String imgName, int newWidth, int newHeight) {
+		String key = new File(imgName).getName() + newWidth + "x" + newHeight;
+		if (images.containsKey(key)) {
+			return images.get(key);
+		}
+		BufferedImage originalImage = getImage(imgName);
 		BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = resizedImage.createGraphics();
 		g.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
 		g.dispose();
-
+		images.put(key, resizedImage);
+		System.out.println("Added " + key + " to Images");
 		return resizedImage;
 	}
 

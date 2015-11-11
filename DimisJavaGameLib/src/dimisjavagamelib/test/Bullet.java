@@ -20,7 +20,7 @@ public class Bullet extends Actor {
 		super("dimisjavagamelib/res/bullet.png", posX, posY);
 
 		this.orientation = orientation;
-		setImg(ImageHandler.resizeImage(getImg(), 100, 100));
+		setImg(ImageHandler.resizeImage(getImageName(), 100, 100));
 
 	}
 
@@ -39,6 +39,7 @@ public class Bullet extends Actor {
 
 		if (intersects(Test3.opp)) {
 			Test3.opp.remove();
+			Test3.opp = null;
 			GameLib.getInstance().removeActor(this);
 		}
 	}

@@ -16,10 +16,13 @@ import dimisjavagamelib.interfaces.Updateable;
 public abstract class World implements Updateable, Drawable {
 
 	private BufferedImage img;
+	
+	private String imageName;
 
 	public World(String img) {
+		imageName = img;
 		this.img = ImageHandler.getImage(img);
-		ImageHandler.resizeImage(this.img, GameLib.getInstance().getScreen().getSize().width,
+		ImageHandler.resizeImage(imageName, GameLib.getInstance().getScreen().getSize().width,
 				GameLib.getInstance().getScreen().getSize().height);
 	}
 
@@ -30,5 +33,9 @@ public abstract class World implements Updateable, Drawable {
 	@Override
 	public void draw(Graphics2D g) {
 		g.drawImage(img, 0, 0, img.getWidth(), img.getHeight(), null);
+	}
+	
+	public String getImageName() {
+		return imageName;
 	}
 }

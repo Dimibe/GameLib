@@ -19,8 +19,10 @@ public abstract class Actor implements Drawable, Updateable {
 	protected Rectangle rect;
 
 	private BufferedImage img;
+	private String imageName;
 
 	public Actor(String img, int posX, int posY) {
+		imageName = img;
 		rect = new Rectangle(posX, posY);
 		setImg(ImageHandler.getImage(img));
 		rect.x = posX;
@@ -81,6 +83,10 @@ public abstract class Actor implements Drawable, Updateable {
 
 	public BufferedImage getImg() {
 		return img;
+	}
+	
+	public String getImageName() {
+		return imageName;
 	}
 
 	public void setImg(BufferedImage img) {

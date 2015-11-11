@@ -18,12 +18,12 @@ public class Test3 {
 		world.activate();
 		
 		Actor actor = new Jellyfish(0, 0);
-		actor.setImg(ImageHandler.resizeImage(actor.getImg(), 50, 50));
+		actor.setImg(ImageHandler.resizeImage(actor.getImageName(), 50, 50));
 		actor.activate();
 		
 
 		opp = new Opponent(600, 300);
-		opp.setImg(ImageHandler.resizeImage(opp.getImg(), 50, 50));
+		opp.setImg(ImageHandler.resizeImage(opp.getImageName(), 50, 50));
 		opp.activate();
 
 		GameLib.getInstance().start();
