@@ -11,7 +11,6 @@ public class Opponent extends Actor {
 
 	@Override
 	public void update() {
-		
 	}
 
 	public void remove() {

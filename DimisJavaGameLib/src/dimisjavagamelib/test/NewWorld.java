@@ -10,7 +10,6 @@ public class NewWorld extends World {
 
 	@Override
 	public void update() {
-		
 	}
 
 }

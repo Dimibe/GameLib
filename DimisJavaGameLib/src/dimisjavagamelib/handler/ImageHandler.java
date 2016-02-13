@@ -56,7 +56,7 @@ public class ImageHandler {
 	 * @return BufferedImage
 	 */
 	public static BufferedImage resizeImage(String imgName, int newWidth, int newHeight) {
-		String key = new File(imgName).getName() + newWidth + "x" + newHeight;
+		String key = newWidth + "x" + newHeight + new File(imgName).getName();
 		if (images.containsKey(key)) {
 			return images.get(key);
 		}
