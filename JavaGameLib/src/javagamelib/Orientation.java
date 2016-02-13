@@ -1,4 +1,4 @@
-package dimisjavagamelib;
+package javagamelib;
 
 /**
  * Represents a standart Vector in one of each Orientations

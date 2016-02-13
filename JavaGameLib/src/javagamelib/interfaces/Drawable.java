@@ -1,7 +1,7 @@
-package dimisjavagamelib.interfaces;
+package javagamelib.interfaces;
 import java.awt.Graphics2D;
 
-import dimisjavagamelib.Screen;
+import javagamelib.Screen;
 
 /**
  * Each class which implements this Interface can be drawn on the screen

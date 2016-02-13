@@ -1,4 +1,4 @@
-package dimisjavagamelib.interfaces;
+package javagamelib.interfaces;
 
 /**
  * Each class which implements this Interface can perform actions every frame

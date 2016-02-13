@@ -1,10 +1,10 @@
-package dimisjavagamelib;
+package javagamelib;
 
 import java.util.LinkedList;
 
-import dimisjavagamelib.interfaces.Updateable;
-import dimisjavagamelib.objects.Actor;
-import dimisjavagamelib.objects.World;
+import javagamelib.interfaces.Updateable;
+import javagamelib.objects.Actor;
+import javagamelib.objects.World;
 
 /**
  * Dimi's Java Game Library

@@ -1,13 +1,13 @@
-package dimisjavagamelib.objects;
+package javagamelib.objects;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import dimisjavagamelib.GameLib;
-import dimisjavagamelib.handler.ImageHandler;
-import dimisjavagamelib.interfaces.Drawable;
-import dimisjavagamelib.interfaces.Updateable;
+import javagamelib.GameLib;
+import javagamelib.handler.ImageHandler;
+import javagamelib.interfaces.Drawable;
+import javagamelib.interfaces.Updateable;
 
 /**
  * this abstract class represents a standard collection with functionalities for objects in the Game 

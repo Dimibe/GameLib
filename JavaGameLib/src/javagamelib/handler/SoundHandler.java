@@ -1,4 +1,4 @@
-package dimisjavagamelib.handler;
+package javagamelib.handler;
 
 public class SoundHandler {
 

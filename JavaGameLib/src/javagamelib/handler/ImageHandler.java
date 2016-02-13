@@ -1,4 +1,4 @@
-package dimisjavagamelib.handler;
+package javagamelib.handler;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-import dimisjavagamelib.exceptions.ImageNotFoundException;
+import javagamelib.exceptions.ImageNotFoundException;
 
 /**
  * This class contains a BufferedImage Pool with all pictures so you dont load

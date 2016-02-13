@@ -1,4 +1,4 @@
-package dimisjavagamelib.handler;
+package javagamelib.handler;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -6,7 +6,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import dimisjavagamelib.GameLib;
+import javagamelib.GameLib;
 
 /**
  * This class can be used to create predefined JFrames
